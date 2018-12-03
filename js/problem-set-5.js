@@ -155,6 +155,11 @@ function guess() {
 
   // WRITE YOUR EXERCISE 4 CODE HERE
 
+  let input = prompt('Enter an integer between 1 and 1000');
+
+
+
+
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
   ////////////////// DO NOT MODIFY
@@ -189,6 +194,17 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
+
+windspeed = prompt('Input a number to see if it falls on the hurricane scale.');
+
+if (windspeed < 39) {
+  alert('Invalid Input');
+} else if (windspeed = 39){
+  
+}
+
+
+var p = document.getElementById('hurricane-result').innerHTML
 
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
