@@ -199,12 +199,25 @@ windspeed = prompt('Input a number to see if it falls on the hurricane scale.');
 
 if (windspeed < 39) {
   alert('Invalid Input');
-} else if (windspeed = 39){
-  
+}
+
+if (windspeed >= 39 && windspeed <= 73){
+  p.innerHTML = ("Tropical Storm");
+} else if (windspeed >= 74 && windspeed <= 95){
+  p.innerHTML = ('Category 1');
+} else if (windspeed >= 96 && windspeed <= 110){
+  p.innerHTML = ('Category 2');
+} else if (windspeed >= 111 && windspeed <= 129){
+  p.innerHTML = ('Category 3');
+} else if (windspeed >= 130 && windspeed <= 156){
+  p.innerHTML = ('Category 4');
+} else if (windspeed >= 157){
+  p.innerHTML = ('Category 5');
 }
 
 
-var p = document.getElementById('hurricane-result').innerHTML
+var p = document.getElementById('hurricane-result');
+
 
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
