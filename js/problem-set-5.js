@@ -28,6 +28,12 @@ function mario() {
 
   // WRITE YOUR EXERCISE 1 CODE HERE
 
+var p = document.getElementById('mario-easy-output');
+height = prompt('Enter a height for your tower');
+let rows = "#";
+
+
+
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
   ////////////////////////// DO NOT MODIFY
@@ -155,7 +161,7 @@ function guess() {
 
   // WRITE YOUR EXERCISE 4 CODE HERE
 
-  let input = prompt('Enter an integer between 1 and 1000');
+
 
 
 
@@ -195,33 +201,10 @@ function hurricane() {
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
 
-windspeed = prompt('Input a number to see if it falls on the hurricane scale.');
 
-if (windspeed < 39) {
-  alert('Invalid Input');
-}
-
-if (windspeed >= 39 && windspeed <= 73){
-  p.innerHTML = ("Tropical Storm");
-} else if (windspeed >= 74 && windspeed <= 95){
-  p.innerHTML = ('Category 1');
-} else if (windspeed >= 96 && windspeed <= 110){
-  p.innerHTML = ('Category 2');
-} else if (windspeed >= 111 && windspeed <= 129){
-  p.innerHTML = ('Category 3');
-} else if (windspeed >= 130 && windspeed <= 156){
-  p.innerHTML = ('Category 4');
-} else if (windspeed >= 157){
-  p.innerHTML = ('Category 5');
-}
-
-
-var p = document.getElementById('hurricane-result');
-
-
-  ///////////////////////////////// DO NOT MODIFY
+///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
-  ///////////////////////////////// DO NOT MODIFY
+///////////////////////////////// DO NOT MODIFY
 }
 
 /*
@@ -248,6 +231,52 @@ function gymnastics() {
   let total = 0; //// DO NOT MODIFY
   let scores = []; // DO NOT MODIFY
   /////////////////// DO NOT MODIFY
+
+  var p = document.getElementById("gymnastics-output");
+  let sOne;
+  let sTwo;
+  let sThree;
+  let sFour;
+  let sFive;
+  let sSix;
+
+scores.push(sOne);
+scores.push(sTwo);
+scores.push(sThree);
+scores.push(sFour);
+scores.push(sFive);
+scores.push(sSix);
+
+if (sOne >= 0.0 && sOne <= 10.0){
+  prompt('Please enter the first score');
+} else {
+  alert('Please enter a valid score');
+}
+
+if (sTwo >= 0.0 && sTwo <= 10.0){
+    prompt('Enter the second score');
+} else {
+  alert('Please enter a valid score');
+}
+
+if (sThree >= 0.0 && sThree <= 10.0){
+  prompt('Enter the third score');
+} else {
+  alert('Please enter a valid score');
+}
+
+
+do{
+  prompt('Enter the fourth score');
+}while (sFour >= 0.0 && sFour <= 10.0);
+
+do{
+  prompt('Enter the fifth score');
+}while (sFive >= 0.0 && sFive <= 10.0);
+
+do{
+  prompt('Enter the sixth score');
+}while (sSix >= 0.0 && sSix <= 10.0);
 
   /*
    * NOTE: The 'total' variable should be representative of the sum of all
