@@ -10,7 +10,7 @@
  *  #####
  * ######
  *
- * Height values must be integers within the range [1, 23]. Users should
+ * Height values must be Integers within the range [1, 23]. Users should
  * be continuously re-prompted until they comply with this restriction.
  *
  * As always, certain portions of the starter code are critical to the
@@ -29,10 +29,31 @@ function mario() {
   // WRITE YOUR EXERCISE 1 CODE HERE
 
 var p = document.getElementById('mario-easy-output');
-height = prompt('Enter a height for your tower');
-let rows = "#";
+while (height < 1 || height > 23 || Number.isInteger(height) === false){
+  height = Number(prompt("Enter a height between 1 and 23"));
+}
+
+let total;
+let h;
+let i;
+let j;
+let row = "";
+
+for (h = 0; h < height; h++){
+  row = row + "#"}
+
+for (let i =0; i <(height-h-1); i++){
+    row = row +"&nbsp;";
+  }
+
+  for (let j = 0; j < (h + 1); j++){
+    row = row + "#";
+  }
 
 
+  total = total + row + "<br/>";
+
+p.innerHTML = "<code>" + total + "</code>";
 
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
@@ -68,6 +89,37 @@ function marioAgain() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 2 CODE HERE
+  var p = document.getElementById('mario-easy-output');
+  while (height < 1 || height > 23 || Number.isInteger(height) === false){
+  height = Number(prompt("Enter a height between 1 and 23"));
+
+
+  let rows = "";
+  let h;
+  let i;
+  let j;
+  let k;
+
+  for (let h = 0; h < height; h++){
+      row = "";
+
+  for (let i = 0; i < (height-h-1); i++){
+        row = row + "&nbsp;";
+      }
+
+      row = row + "#";
+
+      for (let j = 0; j < ( h + 1 ); j++){
+        row = row + "#";
+      }
+
+      row = row + `&nbsp;&nbsp;#`;
+      for (let k = 0; k < (h + 1); k++){
+        row = row + "#";
+      }
+
+total = total + row + "<br/>";
+p.innerHTML = "<code>" + total + "</code>";
 
   //////////////////////////////// DO NOT MODIFY
   check('mario-again', height); // DO NOT MODIFY
@@ -122,6 +174,42 @@ function credit() {
 
   // WRITE YOUR EXERCISE 3 CODE HERE
 
+  var p = document.getElementById("credit-output");
+
+while (true){
+       card = prompt("Enter your Credit Card Number: ");
+     if (card.length==13 || card.length==15 || card.length ==16 && Number.isInteger(Number(card)))
+     break;}
+
+     let totalOdd;
+    let totalEven;
+
+     for( let i = card.length-2; i >= 0; i -= 2) {
+       let num = Number(card[i])*2;
+       let othnum = num.toString();
+       let sum = 0;
+       for (let j = 0; j < othnum.length; j++){
+         sum = sum +Number(othnum[j]);
+       }
+       totalEven = sum + totalEven;
+       console.log(totalEven);
+     }
+     for(let k = card.length-1; k >= 0;k -= 2){
+       totalOdd = totalOdd+Number(card[k])
+     }
+     console.log(totalOdd);
+
+     if (card.length==15 && (card[0]==3 &&(card[1]==7 || card[1]==4)) && (totalOdd + totalEven)%10==0){
+       div.innerHTML="<img src ='./images/amex.png'/>";
+     } else if ((card.length==13 || card.length==16) && card[0]==4 && (totalOdd + totalEven)%10==0){
+     div.innerHTML="<img src ='./images/visa.png'/>";
+   } else if (card.length==16 && (card[0]==5 && (card[1]==1 || card[1]==2 || card[1]==4 || card[1]==5)) && (totalOdd + totalEven)%10==0){
+       div.innerHTML="<img src ='./images/mastercard.png'/>";
+     } else {
+   div.innerHTML="<img src='./images/invalid.png'/>";
+ }
+     card = Number(card);
+
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
    *       variable, do not modify it. If you find it necessary to manipulate
@@ -161,9 +249,35 @@ function guess() {
 
   // WRITE YOUR EXERCISE 4 CODE HERE
 
+var p = document.getElementById('guess-output');
 
+let random = Math.random(Math.random() * 1001) + 1;
 
+let guesses;
+let input;
 
+while (input < 1 || input > 1000 || Number.isInteger(input) === false){
+  input = prompt('Guess which random number has been chosen!')
+  break
+}
+
+if (input = random){
+  p.innerHTML = `Congrats, you found the random number and it only took you ${guesses} guesses!`
+}
+
+do {
+guesses++
+} while (input != random )
+
+if (input > random){
+  p.innerHTML = "You guessed higher than the random number";
+} else if (input < random){
+  p.innerHTML = "You guessed lower than the random number";
+}
+
+do {
+guesses++
+} while (input != random )
 
 
   ////////////////// DO NOT MODIFY
@@ -201,6 +315,25 @@ function hurricane() {
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
 
+var p = document.getElementById("hurricane-output");
+
+while (windspeed < 0 || Number.isInteger === false){
+  windspeed = prompt('Enter a windspeed');
+break}
+
+if (windspeed >= 39 && windspeed <= 73){
+  p.innerHTML = "Tropical Storm";
+} else if (windspeed >= 74 && windspeed <= 95){
+  p.innerHTML = "Category 1";
+} else if (windspeed >= 96 && windspeed <= 110){
+  p.innerHTML = "Category 2";
+} else if (windspeed >= 111 && windspeed <= 129){
+  p.innerHTML = "Category 3";
+} else if (windspeed >= 130 && windspeed <= 156){
+  p.innerHTML = "Category 4";
+} else if (windspeed >= 157){
+  p.innerHTML = "Category 5";
+}
 
 ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
@@ -233,50 +366,79 @@ function gymnastics() {
   /////////////////// DO NOT MODIFY
 
   var p = document.getElementById("gymnastics-output");
-  let sOne;
-  let sTwo;
-  let sThree;
-  let sFour;
-  let sFive;
-  let sSix;
+let sOne;
+let sTwo;
+let sThree;
+let sFour;
+let sFive;
+let sSix;
 
-scores.push(sOne);
-scores.push(sTwo);
-scores.push(sThree);
-scores.push(sFour);
-scores.push(sFive);
-scores.push(sSix);
+do {
+  sOne = prompt('Please enter the first score');
+}while(sOne < 0 || sOne > 10 || Number.isInteger(sOne) === false);
 
 if (sOne >= 0.0 && sOne <= 10.0){
-  prompt('Please enter the first score');
-} else {
-  alert('Please enter a valid score');
-}
+    scores.push(sOne);
+  } else {
+    alert('Please enter a valid score');
+  }
+
+do {
+  sTwo = prompt('Enter the second score');
+} while (sTwo < 0 || sTwo > 10 || Number.isInteger(sTwo) === false);
 
 if (sTwo >= 0.0 && sTwo <= 10.0){
-    prompt('Enter the second score');
+  scores.push(sTwo);
 } else {
   alert('Please enter a valid score');
 }
+
+do {
+  sThree = prompt('Enter the third score');
+} while (sThree < 0 || sThree > 10 || Number.isInteger(sThree) === false);
 
 if (sThree >= 0.0 && sThree <= 10.0){
-  prompt('Enter the third score');
+  scores.push(sThree);
 } else {
   alert('Please enter a valid score');
 }
 
+do {
+  sFour = prompt('Enter the fourth score');
+} while (sFour < 0 || sFour > 10 || Number.isInteger(sFour) === false);
 
-do{
-  prompt('Enter the fourth score');
-}while (sFour >= 0.0 && sFour <= 10.0);
+if (sFour >= 0.0 && sFour <= 10.0){
+  scores.push(sFour);
+} else {
+  alert('Please enter a valid score');
+}
 
-do{
-  prompt('Enter the fifth score');
-}while (sFive >= 0.0 && sFive <= 10.0);
+do {
+  sFive = prompt('Enter the fifth score');
+} while (sFive < 0 || sFive > 10 || Number.isInteger(sFive) === false);
 
-do{
-  prompt('Enter the sixth score');
-}while (sSix >= 0.0 && sSix <= 10.0);
+  if (sFive >= 0.0 && sFive <= 10.0){
+    scores.push(sFive);
+  } else {
+      alert('Please enter a valid score');
+  }
+
+do {
+  sSix = prompt('Enter the sixth score');
+}while(sSix < 0 || sSix > 10 || Number.isInteger(sSix) === false);
+
+  if (sSix >= 0.0 && sSix <= 10.0){
+  scores.push(sSix);
+  } else {
+    alert('Please enter a valid score');
+  }
+
+let maximum = Math.max(sOne, sTwo, sThree, sFour, sFive, sSix);
+let minimum = Math.min(sOne, sTwo, sThree, sFour, sFive, sSix);
+
+total = (sOne + sTwo + sThree + sFour + sFive + sSix)
+finalScore = ((total - maximum) - minimum);
+p.innerHTML = `Score: ${finalScore}`;
 
   /*
    * NOTE: The 'total' variable should be representative of the sum of all
@@ -343,6 +505,36 @@ function reportCard() {
    *       grades the user enters, respectively.
    */
 
+   let p = document.getElementById("report-card-output");
+
+let testgrades;
+
+   while (testGrades < 0 || testGrades > 100 || testgrades !== -1){
+     testGrades = prompt('Enter as many test grades as you want; remember to type -1 when you are done.');
+     tests = Number(testgrades);
+   }
+    testTotal += testGrades;
+    let avg1 = testTotal / tests;
+
+    let quizGrades;
+      while (quizGrades < 0 || quizGrades > 100 || quizGgrades !== -1){
+        quizGrades = prompt("Enter as many quiz grades as you want; remember to type -1 when you are done.");
+      quizzes = Number(quizGrades);
+      }
+      quizTotal += quizGrades;
+      let avg2 = quizTotal / quizzes;
+
+      let homeworkGrades;
+      while (homeworkGrades < 0 || homeworkGrades > 100 || homeworkGrades !== -1){
+        homeworkGrades= prompt("Enter as many homework grades as you want; remmember to type -1 when you are done.");
+        homeworks = Number(homeworkGrades);
+      }
+      homeworkTotal += homeworkGrades;
+      let avg3 = homeworkTotal / homeworks;
+
+      finalGrade = (avg1 * 0.6) + (avg2 * 0.3) + (avg3 * 0.1);
+
+p.innerHTML = `Final grade: ${finalGrade}`;
   /////////////////////// DO NOT MODIFY
   check('report-card', // DO NOT MODIFY
     testTotal, ////////// DO NOT MODIFY
@@ -351,6 +543,6 @@ function reportCard() {
     quizzes, //////////// DO NOT MODIFY
     homeworkTotal, ////// DO NOT MODIFY
     homeworks /////////// DO NOT MODIFY
-  ); //////////////////// DO NOT MODIFY
+   );//////////////////// DO NOT MODIFY
   /////////////////////// DO NOT MODIFY
 }
